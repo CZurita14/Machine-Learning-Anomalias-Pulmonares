@@ -1,0 +1,10 @@
+{
+  "sample_normal.jpg": {
+    "label": "PNEUMONIA",
+    "confidence": 0.6151036620140076
+  },
+  "sample_pneumonia.jpg": {
+    "label": "PNEUMONIA",
+    "confidence": 0.6797400712966919
+  }
+}

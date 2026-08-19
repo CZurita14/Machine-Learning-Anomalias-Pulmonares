@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI - Plataforma Médica</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <div class="app-layout">
+        
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                </div>
+                <div class="sidebar-text-group">
+                    <h1>Med<span class="highlight">AI</span></h1>
+                    <p>Plataforma Médica</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="nav-item active" onclick="switchView('view-scanner', this)">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                    </span>
+                    <span class="sidebar-text-group">Escáner de Radiografías</span>
+                </button>
+                <button class="nav-item" onclick="switchView('view-cases', this)">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <span class="sidebar-text-group">Casos Clínicos</span>
+                </button>
+                <button class="nav-item" onclick="switchView('view-chat', this)">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <span class="sidebar-text-group">Asistente IA</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-info">
+                    <div class="avatar">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="sidebar-text-group">
+                        <h4>Dr. Usuario</h4>
+                        <span>Radiólogo</span>
+                    </div>
+                </div>
+                <div class="logout sidebar-text-group">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Cerrar sesión
+                </div>
+                <div class="version sidebar-text-group">Versión 2.0 (Exposición)</div>
+            </div>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- HEADER SUPERIOR -->
+            <header class="top-header">
+                <div class="header-title">
+                    <button class="menu-btn" onclick="toggleSidebar()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                    <div>
+                        <h2>Escáner de Radiografías</h2>
+                        <p>Análisis asistido por inteligencia artificial</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="themeToggleBtn" onclick="toggleTheme()">
+                        <!-- Icono de Sol por defecto -->
+                        <svg id="themeIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="showNotification()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </button>
+                </div>
+            </header>
+
+            <div class="dashboard-scroll">
+                
+                <!-- VISTA 1: ESCÁNER IA -->
+                <section id="view-scanner" class="view-section active">
+                    <div class="content-grid">
+                        
+                        <!-- Columna 1: Selección -->
+                        <div class="col-selection">
+                            <div class="col-header">
+                                <h3><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 1. Seleccionar Paciente</h3>
+                            </div>
+                            
+                            <div class="search-bar">
+                                <input type="text" placeholder="Buscar paciente...">
+                                <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                <button class="filter-btn" onclick="showNotification('Filtros avanzados no disponibles en demo')">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="patient-gallery">
+                                <div class="patient-card" onclick="selectImage('samples/sample_normal.jpg')">
+                                    <img src="samples/sample_normal.jpg" alt="Normal" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=200&auto=format&fit=crop';">
+                                    <div class="card-details">
+                                        <h4>ID: #8392</h4>
+                                        <p class="status"><span class="dot safe"></span> Estado: Normal</p>
+                                        <p class="date">○ Fecha: 12/05/2025</p>
+                                    </div>
+                                    <svg class="chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                </div>
+                                <div class="patient-card" onclick="selectImage('samples/sample_pneumonia.jpg')">
+                                    <img src="samples/sample_pneumonia.jpg" alt="Neumonía" onerror="this.src='https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=200&auto=format&fit=crop';">
+                                    <div class="card-details">
+                                        <h4>ID: #4421</h4>
+                                        <p class="status"><span class="dot warning"></span> Estado: Sospechoso</p>
+                                        <p class="date">○ Fecha: 10/05/2025</p>
+                                    </div>
+                                    <svg class="chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                </div>
+                            </div>
+                            
+                            <div class="upload-container">
+                                <div class="upload-area" id="uploadArea">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    <div class="upload-text">
+                                        <h4>O sube una nueva radiografía</h4>
+                                        <p>Drag & drop o clic para seleccionar</p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInput" accept="image/jpeg, image/png" hidden>
+                                <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    Cargar Imagen Local
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Columna 2: Visor -->
+                        <div class="col-viewer">
+                            <div class="viewer-wrapper">
+                                <div class="viewer-header">
+                                    <h3>
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                                        Visor de Radiografía
+                                    </h3>
+                                    <button class="tools-btn" onclick="showNotification('Panel avanzado de herramientas en desarrollo')">
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                                        Herramientas
+                                    </button>
+                                </div>
+                                
+                                <div class="viewer-main">
+                                    <div class="side-toolbar">
+                                        <button class="tool-icon active" onclick="applyFilter('reset', this)" title="Puntero (Reset)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg></button>
+                                        <button class="tool-icon" onclick="applyFilter('zoom-in', this)" title="Acercar (Zoom In)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></button>
+                                        <button class="tool-icon" onclick="applyFilter('zoom-out', this)" title="Alejar (Zoom Out)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg></button>
+                                        <button class="tool-icon" onclick="showNotification('Herramienta de medición deshabilitada en demo')" title="Medición"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></button>
+                                        <button class="tool-icon" onclick="applyFilter('brightness', this)" title="Aumentar Brillo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+                                        <button class="tool-icon" onclick="applyFilter('contrast', this)" title="Aumentar Contraste"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+                                        <button class="tool-icon" onclick="applyFilter('invert', this)" title="Invertir Colores (Negativo)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></button>
+                                    </div>
+                                    
+                                    <div class="image-area">
+                                        <div class="viewer-container" id="viewerContainer">
+                                            <img id="mainImage" src="" alt="Radiografía a analizar" style="display: none; transition: all 0.3s ease;">
+                                            <div class="placeholder-text" id="placeholderText">SELECCIONE UNA IMAGEN PARA ANALIZAR</div>
+                                            <div class="scanner-line" id="scannerLine"></div>
+                                            <div class="heatmap-overlay" id="heatmapOverlay"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="viewer-footer">
+                                    <div class="thumbnails">
+                                        <div class="thumb active"></div>
+                                        <div class="thumb"></div>
+                                        <div class="thumb"></div>
+                                        <div class="thumb"></div>
+                                    </div>
+                                    <div class="pagination">
+                                        <span>1 / 5</span>
+                                        <button class="page-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                                        <button class="page-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn-gradient" id="btnScan" disabled onclick="startScan()">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><path d="M12 2l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/><path d="M19 22l1.5-3 3-1.5-3-1.5L19 13l-1.5 3-3 1.5 3 1.5z"/></svg>
+                                Iniciar Análisis IA
+                            </button>
+                            <p class="scan-hint">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                El análisis puede tardar unos segundos
+                            </p>
+                        </div>
+
+                        <!-- Columna 3: Resultados -->
+                        <div class="col-results">
+                            <div class="col-header">
+                                <h3>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                    Análisis IA
+                                </h3>
+                            </div>
+                            
+                            <div class="results-stack">
+                                <!-- Tarjeta Estado Principal -->
+                                <div class="result-card main-status" id="mainStatusCard">
+                                    <div class="spinner" id="statusSpinner"></div>
+                                    <div class="status-icon-done" id="statusIconDone" style="display:none;">
+                                        <svg viewBox="0 0 24 24" width="32" height="32" fill="#2563eb" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 id="statusTitle">Esperando datos...</h4>
+                                        <p id="statusDesc">Pendiente de análisis</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tarjeta Confianza -->
+                                <div class="result-card metric-card">
+                                    <div class="metric-header">
+                                        <div class="metric-title">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                            Confianza del Modelo
+                                        </div>
+                                        <div class="metric-value" id="confidenceValue">--%</div>
+                                    </div>
+                                    <div class="progress-track"><div class="progress-bar" id="confidenceBar" style="width: 0%; background: #8b5cf6;"></div></div>
+                                </div>
+                                
+                                <!-- Tarjeta Tiempo -->
+                                <div class="result-card metric-card">
+                                    <div class="metric-header">
+                                        <div class="metric-title">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            Tiempo de Inferencia
+                                        </div>
+                                        <div class="metric-value" id="timeValue">-- ms</div>
+                                    </div>
+                                    <div class="progress-track"><div class="progress-bar" id="timeBar" style="width: 0%; background: #10b981;"></div></div>
+                                </div>
+                                
+                                <!-- Tarjeta Estado Detallado -->
+                                <div class="result-card status-detail">
+                                    <div class="status-row">
+                                        <div class="metric-title">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#d946ef" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            Estado del Análisis
+                                        </div>
+                                        <div class="badge pending" id="verdictBadge">Pendiente</div>
+                                    </div>
+                                    <p class="status-text" id="verdictTitle">Preparando modelo de IA...</p>
+                                </div>
+                                
+                                <!-- Tarjeta Info -->
+                                <div class="info-card">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                    <div>
+                                        <h4>Información</h4>
+                                        <p id="infoText">Selecciona un paciente y una radiografía para iniciar el análisis con IA.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Historial -->
+                                <div class="result-card history-card" onclick="showNotification('Historial de pacientes cargado.')">
+                                    <div class="history-header">
+                                        <h4>Historial de análisis</h4>
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                    </div>
+                                    <p class="empty-state">Aún no hay análisis realizados</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- VISTA 2: CASOS CLÍNICOS -->
+                <section id="view-cases" class="view-section">
+                    <div class="cases-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h2>Biblioteca de Casos Clínicos</h2>
+                            <p>Base de conocimientos para entrenamiento y validación de diagnósticos.</p>
+                        </div>
+                        <div>
+                            <input type="file" id="pdfUploadInput" accept="application/pdf" hidden onchange="handlePDFUpload(this)">
+                            <button class="btn-primary" onclick="document.getElementById('pdfUploadInput').click()">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                                Importar PDF
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cases-grid" id="casesGrid">
+                        <div class="case-card">
+                            <div class="case-tag danger">Protocolo Crítico</div>
+                            <h3>Neumonía Lobar Severa</h3>
+                            <p>Paciente masculino de 54 años presenta disnea y fiebre alta. Radiografía muestra opacidad consolidada en lóbulo inferior derecho.</p>
+                            <hr>
+                            <p><strong>Tratamiento sugerido:</strong> Antibioticoterapia intravenosa, oxigenoterapia suplementaria y monitoreo continuo de SpO2.</p>
+                        </div>
+                        <div class="case-card">
+                            <div class="case-tag safe">Protocolo de Rutina</div>
+                            <h3>Examen Torácico Normal</h3>
+                            <p>Chequeo pre-ocupacional. Campos pulmonares limpios, silueta cardíaca dentro de límites normales. Senos costofrénicos libres.</p>
+                            <hr>
+                            <p><strong>Seguimiento:</strong> Ninguno requerido. Dar el alta clínica para laborar.</p>
+                        </div>
+                        <div class="case-card">
+                            <div class="case-tag warning">Protocolo de Observación</div>
+                            <h3>Derrame Pleural Leve</h3>
+                            <p>Paciente femenina de 62 años. Borramiento del seno costofrénico izquierdo. Sin dificultad respiratoria severa al reposo.</p>
+                            <hr>
+                            <p><strong>Tratamiento sugerido:</strong> Toracocentesis diagnóstica si aumenta. Diuréticos y reevaluación radiográfica en 48 horas.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VISTA 3: CHATBOT MÉDICO -->
+                <section id="view-chat" class="view-section">
+                    <div class="chat-container panel">
+                        <div class="chat-header">
+                            <div class="bot-avatar">🤖</div>
+                            <div>
+                                <h2>Asistente Médico IA</h2>
+                                <p class="status-online">● En línea y listo para consultar</p>
+                            </div>
+                        </div>
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message bot-message">
+                                <p>¡Hola, Doctor! Soy tu Asistente MedAI. Puedo ayudarte con sugerencias de tratamientos, protocolos clínicos o revisión de síntomas. ¿En qué te puedo asistir hoy?</p>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chatInput" placeholder="Escribe tu consulta aquí..." onkeypress="handleChatKeyPress(event)">
+                            <button class="btn-primary" onclick="sendMessage()">Enviar</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Contenedor de Notificaciones (Toast) -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
