@@ -1,0 +1,11 @@
+﻿paths:
+  exclude:
+    - node_modules
+    - venv
+    - .git
+    - dist
+    - build
+    - __pycache__
+    - "*.egg-info"
+    - ".pytest_cache"
+    - coverage

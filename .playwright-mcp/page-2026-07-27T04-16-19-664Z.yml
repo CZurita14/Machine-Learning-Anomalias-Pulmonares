@@ -1,0 +1,93 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e8]:
+      - heading "MedAI" [level=1] [ref=e9]
+      - paragraph [ref=e10]: Plataforma Médica
+    - navigation [ref=e11]:
+      - button "Escáner de Radiografías" [ref=e12] [cursor=pointer]
+      - button "Casos Clínicos" [ref=e17] [cursor=pointer]
+      - button "Asistente IA" [ref=e22] [cursor=pointer]
+    - generic [ref=e27]:
+      - generic [ref=e33]:
+        - heading "Dr. Usuario" [level=4] [ref=e34]
+        - text: Radiólogo
+      - generic [ref=e35] [cursor=pointer]: Cerrar sesión
+      - generic [ref=e39]: Versión 2.0 (Exposición)
+  - main [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - button [ref=e43] [cursor=pointer]
+        - generic [ref=e45]:
+          - heading "Escáner de Radiografías" [level=2] [ref=e46]
+          - paragraph [ref=e47]: Análisis asistido por inteligencia artificial
+      - generic [ref=e48]:
+        - button [ref=e49] [cursor=pointer]
+        - button [ref=e56] [cursor=pointer]
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - heading "1. Seleccionar Paciente" [level=3] [ref=e65]
+        - generic [ref=e69]:
+          - textbox "Buscar paciente..." [ref=e70]
+          - button [ref=e74] [cursor=pointer]
+        - generic [ref=e77]:
+          - generic [ref=e78] [cursor=pointer]:
+            - img "Normal" [ref=e79]
+            - generic [ref=e80]:
+              - 'heading "ID: #8392" [level=4] [ref=e81]'
+              - paragraph [ref=e82]: "Estado: Normal"
+              - paragraph [ref=e84]: "○ Fecha: 12/05/2025"
+          - generic [ref=e87] [cursor=pointer]:
+            - img "Neumonía" [ref=e88]
+            - generic [ref=e89]:
+              - 'heading "ID: #4421" [level=4] [ref=e90]'
+              - paragraph [ref=e91]: "Estado: Sospechoso"
+              - paragraph [ref=e93]: "○ Fecha: 10/05/2025"
+        - generic [ref=e96]:
+          - generic [ref=e101]:
+            - heading "O sube una nueva radiografía" [level=4] [ref=e102]
+            - paragraph [ref=e103]: Drag & drop o clic para seleccionar
+          - button "Cargar Imagen Local" [ref=e104] [cursor=pointer]
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - heading "Visor de Radiografía" [level=3] [ref=e111]
+            - button "Herramientas" [ref=e114] [cursor=pointer]
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - button "Puntero (Reset)" [ref=e119] [cursor=pointer]
+              - button "Acercar (Zoom In)" [ref=e122] [cursor=pointer]
+              - button "Alejar (Zoom Out)" [ref=e126] [cursor=pointer]
+              - button "Medición" [ref=e130] [cursor=pointer]
+              - button "Aumentar Brillo" [ref=e133] [cursor=pointer]
+              - button "Aumentar Contraste" [ref=e140] [cursor=pointer]
+              - button "Invertir Colores (Negativo)" [ref=e143] [cursor=pointer]
+            - img "Radiografía a analizar" [ref=e216]
+          - generic [ref=e157]:
+            - generic [ref=e158]: 1 / 5
+            - button [ref=e159] [cursor=pointer]
+            - button [ref=e162] [cursor=pointer]
+        - button "Iniciar Análisis IA" [ref=e165] [cursor=pointer]
+        - paragraph [ref=e169]: El análisis puede tardar unos segundos
+      - generic [ref=e172]:
+        - heading "Análisis IA" [level=3] [ref=e174]
+        - generic [ref=e177]:
+          - generic [ref=e180]:
+            - heading "Análisis Completado" [level=4] [ref=e222]
+            - paragraph [ref=e182]: Resultados listos para revisión médica
+          - generic [ref=e184]:
+            - generic [ref=e185]: Confianza del Modelo
+            - generic [ref=e188]: 62%
+          - generic [ref=e191]:
+            - generic [ref=e192]: Tiempo de Inferencia
+            - generic [ref=e196]: 2507 ms
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - generic [ref=e200]: Estado del Análisis
+              - generic [ref=e202]: Riesgo Detectado
+            - paragraph [ref=e203]: Infiltrado pulmonar / Posible Neumonía
+          - generic [ref=e207]:
+            - heading "Información" [level=4] [ref=e208]
+            - paragraph [ref=e209]: Se han detectado patrones anómalos consistentes con Infiltrado pulmonar / Posible Neumonía. Se recomienda revisión clínica inmediata.
+          - generic [ref=e210] [cursor=pointer]:
+            - heading "Historial de análisis" [level=4] [ref=e212]
+            - paragraph [ref=e215]: Aún no hay análisis realizados
